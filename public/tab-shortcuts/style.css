@@ -40,7 +40,7 @@ body {
     box-shadow: var(--window-shadow);
     width: 100%;
     max-width: 720px;
-    min-height: 480px;
+    min-height: 580px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -122,18 +122,25 @@ body {
     gap: 16px;
 }
 
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .content h1 {
     font-size: 24px;
     font-weight: 500;
     color: var(--text-primary);
     letter-spacing: -0.5px;
+    margin-bottom: 4px;
 }
 
 .content h2 {
     font-size: 16px;
     font-weight: 500;
     color: var(--text-primary);
-    margin-top: 8px;
+    margin-bottom: 4px;
 }
 
 .content p {
@@ -155,7 +162,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 4px;
 }
 
 .feature-item {
@@ -195,7 +201,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 8px;
 }
 
 .link-item {
@@ -229,8 +234,6 @@ body {
 }
 
 .star-cta:hover { background: var(--nav-active); border-bottom: 1px solid var(--window-border); }
-
-.privacy-section { margin-top: 8px; }
 
 .privacy-section ul {
     list-style: none;
