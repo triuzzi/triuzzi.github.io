@@ -86,21 +86,11 @@
         </div>
     </div>
     <script>
-        const pages = document.querySelectorAll('[id^="page-"]');
-        let maxHeight = 0;
-        pages.forEach(p => {
-            p.style.display = '';
-            maxHeight = Math.max(maxHeight, p.offsetHeight);
-            p.style.display = 'none';
-        });
-        pages[0].style.display = '';
-        document.getElementById('content').style.minHeight = maxHeight + 64 + 'px';
-
         document.querySelectorAll('.nav-item[data-page]').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.nav-item[data-page]').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                pages.forEach(p => p.style.display = 'none');
+                document.querySelectorAll('[id^="page-"]').forEach(p => p.style.display = 'none');
                 document.getElementById('page-' + btn.dataset.page).style.display = '';
             });
         });
