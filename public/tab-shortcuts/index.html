@@ -24,7 +24,6 @@
                     <button class="nav-item active" data-page="features">Features</button>
                     <button class="nav-item" data-page="install">Install</button>
                     <a class="nav-item" href="privacy-policy/">Privacy</a>
-                    <a class="nav-item" href="https://github.com/triuzzi/tab-shortcuts" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </nav>
                 <main class="content" id="content">
                     <div id="page-features">
@@ -80,17 +79,28 @@
                             </a>
                         </div>
                         <p>No data collected. No network requests. Runs entirely in your browser. Open source under MIT license.</p>
+                        <a href="https://github.com/triuzzi/tab-shortcuts" class="star-cta" target="_blank" rel="noopener noreferrer">&#9734; Star on GitHub</a>
                     </div>
                 </main>
             </div>
         </div>
     </div>
     <script>
+        const pages = document.querySelectorAll('[id^="page-"]');
+        let maxHeight = 0;
+        pages.forEach(p => {
+            p.style.display = '';
+            maxHeight = Math.max(maxHeight, p.offsetHeight);
+            p.style.display = 'none';
+        });
+        pages[0].style.display = '';
+        document.getElementById('content').style.minHeight = maxHeight + 64 + 'px';
+
         document.querySelectorAll('.nav-item[data-page]').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.nav-item[data-page]').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.querySelectorAll('[id^="page-"]').forEach(p => p.style.display = 'none');
+                pages.forEach(p => p.style.display = 'none');
                 document.getElementById('page-' + btn.dataset.page).style.display = '';
             });
         });
